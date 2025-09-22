@@ -1,0 +1,273 @@
+/* Import Google Fonts - Quicksand */
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;700&display=swap');
+
+/* --- Reset dan Styling Dasar (Typography & Box Model) --- */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Quicksand', sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    color: #444;
+    background-color: #f0f2f5;
+}
+
+h1, h2, h3 {
+    font-weight: 700;
+    color: #1a1a1a;
+}
+
+a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+section {
+    padding: 20px;
+}
+
+/* --- Layout Header (Flexbox & Box Model) --- */
+header {
+    background-color: white;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 15px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 1.5rem;
+    color: #1a1a1a;
+}
+
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 25px;
+    align-items: center;
+}
+
+nav ul li a {
+    color: #444;
+    font-weight: 700;
+    transition: color 0.3s ease;
+}
+
+nav ul li a:hover {
+    color: #007bff;
+    text-decoration: none;
+}
+
+form {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+#search-input {
+    border: 1px solid #ced4da;
+    border-radius: 5px;
+    padding: 8px 12px;
+    font-size: 14px;
+    transition: border-color 0.3s;
+}
+
+#search-input:focus {
+    outline: none;
+    border-color: #007bff;
+}
+
+form button {
+    background-color: #1a1a1a;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 8px 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+form button:hover {
+    background-color: #343a40;
+}
+
+/* --- Layout Utama (Flexbox) --- */
+main {
+    max-width: 1200px;
+    margin: 20px auto;
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    padding: 0 20px;
+}
+
+aside {
+    flex: 0 0 250px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+}
+
+aside h2 {
+    font-size: 1.25rem;
+    margin-top: 0;
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #ddd;
+}
+
+aside ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+aside ul li a {
+    display: block;
+    padding: 8px 0;
+    color: #444;
+    transition: color 0.2s;
+}
+
+aside ul li a:hover {
+    color: #007bff;
+}
+
+/* Video Container */
+.video-container {
+    flex-direction: column;
+    position: relative;
+    width: 100%;
+    padding-bottom: 56.25%; /* Rasio 16:9 */
+    height: 0;
+    overflow: hidden;
+    margin-top: 20px;
+    gap: 20px;
+}
+
+.video-container video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.video-container-2 {
+    flex-direction: column;
+    position: relative;
+    width: 100%;
+    padding-bottom: 56.25%; /* Rasio 16:9 */
+    height: 0;
+    overflow: hidden;
+    margin-top: 20px;
+    gap: 20px;
+}
+
+.video-container-2 video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+/* Product Grid */
+#produk {
+    flex: 1;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+#produk h2 {
+    width: 100%;
+    margin-top: 0;
+    border-bottom: 2px solid #ddd;
+    padding-bottom: 10px;
+}
+
+#produk article {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    flex: 1 1 calc(33.333% - 20px);
+    transition: transform 0.3s, box-shadow 0.3s;
+    text-align: center; /* Teks di tengah */
+}
+
+#produk article:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+#produk article img {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+    margin-bottom: 15px;
+}
+
+/* --- Footer --- */
+footer {
+    background-color: #1a1a1a;
+    color: white;
+    text-align: center;
+    padding: 25px 20px;
+}
+
+footer p {
+    margin: 5px 0;
+}
+
+footer a {
+    color: #007bff;
+}
+
+/* --- Responsive Design (Media Queries) --- */
+@media (max-width: 992px) {
+    main {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    aside {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+    #produk article {
+        flex: 1 1 100%;
+    }
+}
+
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    nav ul {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    form {
+        width: 100%;
+    }
+}
