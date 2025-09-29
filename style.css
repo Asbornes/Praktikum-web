@@ -1,7 +1,5 @@
-/* Import Google Fonts - Quicksand */
 @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;700&display=swap');
 
-/* --- Reset dan Styling Dasar (Typography & Box Model) --- */
 * {
     box-sizing: border-box;
 }
@@ -33,7 +31,7 @@ section {
     padding: 20px;
 }
 
-/* --- Layout Header (Flexbox & Box Model) --- */
+/* Header */
 header {
     background-color: white;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -105,7 +103,7 @@ form button:hover {
     background-color: #343a40;
 }
 
-/* --- Layout Utama (Flexbox) --- */
+/* Main layout */
 main {
     max-width: 1200px;
     margin: 20px auto;
@@ -148,37 +146,19 @@ aside ul li a:hover {
     color: #007bff;
 }
 
-/* Video Container */
-.video-container {
-    flex-direction: column;
-    position: relative;
-    width: 100%;
-    padding-bottom: 56.25%; /* Rasio 16:9 */
-    height: 0;
-    overflow: hidden;
-    margin-top: 20px;
-    gap: 20px;
-}
-
-.video-container video {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-}
-
+/* Video */
+.video-container,
 .video-container-2 {
     flex-direction: column;
     position: relative;
     width: 100%;
-    padding-bottom: 56.25%; /* Rasio 16:9 */
+    padding-bottom: 56.25%;
     height: 0;
     overflow: hidden;
     margin-top: 20px;
-    gap: 20px;
 }
 
+.video-container video,
 .video-container-2 video {
     position: absolute;
     top: 0;
@@ -186,7 +166,8 @@ aside ul li a:hover {
     width: 100%;
     height: 100%;
 }
-/* Product Grid */
+
+/* Produk */
 #produk {
     flex: 1;
     display: flex;
@@ -208,7 +189,7 @@ aside ul li a:hover {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     flex: 1 1 calc(33.333% - 20px);
     transition: transform 0.3s, box-shadow 0.3s;
-    text-align: center; /* Teks di tengah */
+    text-align: center;
 }
 
 #produk article:hover {
@@ -223,7 +204,22 @@ aside ul li a:hover {
     margin-bottom: 15px;
 }
 
-/* --- Footer --- */
+/* Tentang Kami */
+#tentang-kami {
+    text-align: center;
+    margin: 40px auto;
+    max-width: 900px;
+    padding: 0 20px;
+}
+
+#tentang-kami p {
+    max-width: 900px;
+    margin: 20px auto 0 auto;
+    line-height: 1.8;
+    text-align: justify;
+}
+
+/* Footer */
 footer {
     background-color: #1a1a1a;
     color: white;
@@ -231,15 +227,21 @@ footer {
     padding: 25px 20px;
 }
 
+footer h2 {
+    color: #ffffff;   /* fix supaya judul "Hubungi Kami" kelihatan */
+    margin-bottom: 10px;
+}
+
 footer p {
     margin: 5px 0;
+    color: #f0f0f0;
 }
 
 footer a {
     color: #007bff;
 }
 
-/* --- Responsive Design (Media Queries) --- */
+/* Responsive */
 @media (max-width: 992px) {
     main {
         flex-direction: column;
