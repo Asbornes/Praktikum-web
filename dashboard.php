@@ -1,7 +1,15 @@
 <?php
 session_start(); // Memulai session
+
+// Jika user BELUM login, redirect ke halaman login
+if (!isset($_SESSION['username'])) {
+    header("Location: login.php");
+    exit();
+}
+
 $search_query = '';
 $message = '';
+$username = htmlspecialchars($_SESSION['username']); // Mengambil username
 
 if (isset($_GET['search'])) {
     $search_query = htmlspecialchars($_GET['search']);
@@ -19,7 +27,7 @@ if (isset($_GET['search'])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CypherBot - Toko Komputer Cyber</title>
+    <title>CypherBot - Dashboard</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -32,13 +40,17 @@ if (isset($_GET['search'])) {
                 <li><a href="#tentang-kami">Tentang Kami</a></li>
                 <li><a href="#kontak">Kontak</a></li>
                 
-                <li class="nav-buttons"><a href="login.php" class="btn btn-login">Login</a></li>
-                <li class="nav-buttons"><a href="#" class="btn btn-register">Registrasi</a></li>
+                <li class="nav-buttons">
+                    <span style="font-weight: 700; color: #007bff; padding: 0 10px;">Halo <?php echo $username; ?>!</span>
+                </li>
+                <li class="nav-buttons">
+                    <a href="logout.php" class="btn btn-logout" 
+                    onclick="return confirm('Apakah Anda yakin ingin keluar dari sesi ini?');">Logout</a> 
+                </li>
                 
             </ul>
         </nav>
-        <form method="GET" action="index.php">
-            <label for="search-input">Cari Produk:</label>
+        <form method="GET" action="dashboard.php"> <label for="search-input">Cari Produk:</label>
             <input type="search" id="search-input" name="search" placeholder="Masukkan kata kunci..." value="<?php echo $search_query; ?>">
             <button type="submit">Cari</button>
         </form>
@@ -56,28 +68,28 @@ if (isset($_GET['search'])) {
         <aside>
             <h2>Categories</h2>
             <ul>
-                <li><a href="index.php?category=gaming-notebook">Gaming Notebook</a></li>
-                <li><a href="index.php?category=notebook">Notebook</a></li>
-                <li><a href="index.php?category=desktop-mini-pc">Desktop - Mini PC</a></li>
-                <li><a href="index.php?category=processor">Processor</a></li>
-                <li><a href="index.php?category=mainboard">Mainboard</a></li>
-                <li><a href="index.php?category=memory">Memory</a></li>
-                <li><a href="index.php?category=harddisk-ssd">HardDisk - SSD</a></li>
-                <li><a href="index.php?category=vga-card">VGA Card</a></li>
-                <li><a href="index.php?category=casing-pc">Casing PC</a></li>
-                <li><a href="index.php?category=cooler-modding-kit">Cooler - Modding Kit</a></li>
-                <li><a href="index.php?category=power-supply">Power Supply</a></li>
-                <li><a href="index.php?category=monitor-bracket">Monitor - Bracket</a></li>
-                <li><a href="index.php?category=keyboard-mouse">Keyboard - Mouse</a></li>
-                <li><a href="index.php?category=streaming-recording">Streaming - Recording</a></li>
-                <li><a href="index.php?category=aksesoris">Aksesoris</a>
+                <li><a href="dashboard.php?category=gaming-notebook">Gaming Notebook</a></li>
+                <li><a href="dashboard.php?category=notebook">Notebook</a></li>
+                <li><a href="dashboard.php?category=desktop-mini-pc">Desktop - Mini PC</a></li>
+                <li><a href="dashboard.php?category=processor">Processor</a></li>
+                <li><a href="dashboard.php?category=mainboard">Mainboard</a></li>
+                <li><a href="dashboard.php?category=memory">Memory</a></li>
+                <li><a href="dashboard.php?category=harddisk-ssd">HardDisk - SSD</a></li>
+                <li><a href="dashboard.php?category=vga-card">VGA Card</a></li>
+                <li><a href="dashboard.php?category=casing-pc">Casing PC</a></li>
+                <li><a href="dashboard.php?category=cooler-modding-kit">Cooler - Modding Kit</a></li>
+                <li><a href="dashboard.php?category=power-supply">Power Supply</a></li>
+                <li><a href="dashboard.php?category=monitor-bracket">Monitor - Bracket</a></li>
+                <li><a href="dashboard.php?category=keyboard-mouse">Keyboard - Mouse</a></li>
+                <li><a href="dashboard.php?category=streaming-recording">Streaming - Recording</a></li>
+                <li><a href="dashboard.php?category=aksesoris">Aksesoris</a>
                     <ul>
-                        <li><a href="index.php?category=aksesoris-audio">. Audio</a></li>
-                        <li><a href="index.php?category=aksesoris-console">. Console</a></li>
-                        <li><a href="index.php?category=aksesoris-gamepad">. Gamepad</a></li>
-                        <li><a href="index.php?category=aksesoris-gaming-chair">. Gaming Chair</a></li>
-                        <li><a href="index.php?category=aksesoris-gaming-desk">. Gaming Desk (Meja)</a></li>
-                        <li><a href="index.php?category=aksesoris-flash-disk">. Flash Disk - MMC</a></li>
+                        <li><a href="dashboard.php?category=aksesoris-audio">. Audio</a></li>
+                        <li><a href="dashboard.php?category=aksesoris-console">. Console</a></li>
+                        <li><a href="dashboard.php?category=aksesoris-gamepad">. Gamepad</a></li>
+                        <li><a href="dashboard.php?category=aksesoris-gaming-chair">. Gaming Chair</a></li>
+                        <li><a href="dashboard.php?category=aksesoris-gaming-desk">. Gaming Desk (Meja)</a></li>
+                        <li><a href="dashboard.php?category=aksesoris-flash-disk">. Flash Disk - MMC</a></li>
                     </ul>
                 </li>
             </ul>
