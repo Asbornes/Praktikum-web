@@ -102,7 +102,7 @@ if (isset($_GET['search'])) {
                 <video src="LOQ 15IRX9.mp4" autoplay muted loop></video>
             </div>
             <div class="video-container-2">
-                <video src="2024 Nitro V 15  Live for Victory  Acer.mp4" autoplay muted loop></video>
+                <video src="2024 Nitro V 15  Live for Victory  Acer.mp4" autoplay muted loop></video>
             </div>
         </section>
 
